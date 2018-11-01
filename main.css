@@ -23,6 +23,10 @@ body {
 
 #canvasDiv {
   padding: 0;
+  background-image: url(assets/backgrounds/backgroundGridGrey.png);
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-position: center;
 }
 
 .canvas {
@@ -35,26 +39,45 @@ body {
     border-color: #D2DB21 #8787C1 #00DA80 #D31996;*/
 }
 
-.outline {
-  background-color: #bdbfbf;
-  border-style: solid;
-  border-width: 5px;
-  border-radius: 33px;
-  border-color: #8f9091 #593d50 #303030 #D2DB21;
-  padding: 40px;
-  box-shadow: 2px -2px 9px rgba(0, 0, 0, 0.7), 4px -4px 20px rgba(0, 0, 0, 0.4);
-  /* box-shadow: 5px 5px 20px #00DA80; */
+.marginTop {
+  margin-top: 120px;
 }
 
-.outline:hover {
+.marginBottom{
+  margin-bottom: 120px;
+}
+
+.cell {
+  padding: 15px 20px 40px 15px;
+  background-color: #e0e1debb;
+  /* background-color: #f7f7f733; */
+  /* background-color: #bdbfbf88; */
+  border-style: solid;
+  border-width: 0px;
+    box-shadow: 0px 0px 5px #8f9091;
+  /* border-radius: 80px; */
+  border-color: #8f9091;
+
+}
+
+.textCell p {
+padding: 20px;
+}
+
+
+.hoverBlack:hover, .blackText {
   background-color: #161616;
   color: #D2DB21;
 }
 
-.popUp {
-  /* position: fixed; */
-  display: none;
-  max-width: 333px;
+.noHover {
+    background-color: #e0e1debb;
+    color: #161616;
+}
+
+.heading {
+  background-color: #161616;
+  color: #D2DB21;
 }
 
 .overlay {
@@ -64,11 +87,62 @@ body {
   color: #161616;
 }
 
+.yellow {
+  background: #D2DB21;
+}
+
+
+.pink {
+  background: #D31996;
+}
+
+
+.purple {
+  background: #9f44c9;
+}
+
+.green {
+  background: #3ac952;
+}
+
+a {
+  text-decoration: none;
+  border-bottom: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.submit {
+  font-size: 24px;
+  background-color: #161616;
+  padding: .5em;
+  /* padding: .5em; */
+  color: #D2DB21;
+  /* text-align: center; */
+  border: 3px solid #D2DB21;
+}
+
+.submit:hover {
+  background-color: #D2DB21;
+  padding: .5em;
+  /* text-align: center; */
+  /* border: 3px solid #D2DB21; */
+  color: #212121;
+}
+
+
+
+
 #onVr {
   top: 100px;
   left: -20px;
   max-width: 666px;
   background: #D31996;
+}
+
+#onAi {
+  max-width: 133px;
 }
 
 #onFemmebot {

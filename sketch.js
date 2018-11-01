@@ -16,6 +16,7 @@ let onAi;
 let popperAi;
 let femmebot;
 let onFemmebot;
+let allOverlay;
 
 let eraseButton;
 
@@ -47,79 +48,75 @@ function setup() {
   femmebot = document.querySelector('#femmebot');
   onFemmebot = document.querySelector('#onFemmebot');
 
-  let allOverlay = document.querySelectorAll('.overlay');
+  allOverlay = document.querySelectorAll('.overlay');
 
-  // Robots
+  // code below causes overlay to appear on click, others appear on mouseOver
 
+  // robots.addEventListener("click", function() {
+  //   toggleViz(onRobots);
+  // });
+
+  //robots
   robots.addEventListener("mouseenter", function() {
+    hideAllOverlay();
     onRobots.style.visibility = "visible";
-    // robots.innerHTML = "anthropomorphic robots 4 sex"
-  });
-
-  robots.addEventListener("touchstart", function() {
-    allOverlay.forEach(function(el) {
-      el.style.visibility = "hidden";
-    })
-    onRobots.style.visibility = "visible";
-    // robots.innerHTML = "anthropomorphic robots 4 sex"
   });
 
   robots.addEventListener("mouseleave", function() {
     onRobots.style.visibility = "hidden";
-    // robots.innerHTML = "Dolls"
   });
 
+  robots.addEventListener("touchstart", function() {
+    toggleViz(onRobots);
+  });
 
 
   // virtual reality
 
   vr.addEventListener("mouseenter", function() {
+    hideAllOverlay();
     onVr.style.visibility = "visible";
-    // vr.innerHTML = "enter computer reality"
-  });
-
-  vr.addEventListener("touchstart", function() {
-    onVr.style.visibility = "visible";
-    // vr.innerHTML = "enter computer reality"
   });
 
   vr.addEventListener("mouseleave", function() {
     onVr.style.visibility = "hidden";
-    // vr.innerHTML = "Virtual Reality"
   });
+
+  vr.addEventListener("touchstart", function() {
+    toggleViz(onVr);
+  });
+
 
   // mixed reality
 
   mr.addEventListener("mouseenter", function() {
+    hideAllOverlay();
     onMr.style.visibility = "visible";
-    // mr.innerHTML = "reality overlay"
-  });
-
-  mr.addEventListener("touchstart", function() {
-    onMr.style.visibility = "visible";
-    // mr.innerHTML = "reality overlay"
   });
 
   mr.addEventListener("mouseleave", function() {
     onMr.style.visibility = "hidden";
-    // mr.innerHTML = "Mixed Reality"
   });
+
+  mr.addEventListener("touchstart", function() {
+    toggleViz(onMr);
+  });
+
+
 
   // ai
 
   ai.addEventListener("mouseenter", function() {
+    hideAllOverlay();
     onAi.style.visibility = "visible";
-    // ai.innerHTML = "sexy siri"
   });
 
   ai.addEventListener("touchstart", function() {
-    onAi.style.visibility = "visible";
-    // ai.innerHTML = "sexy siri"
+    toggleViz(onAi);
   });
 
   ai.addEventListener("mouseleave", function() {
     onAi.style.visibility = "hidden";
-    // ai.innerHTML = "AI companionship"
   });
 
 
@@ -127,11 +124,12 @@ function setup() {
 
 
   femmebot.addEventListener("mouseenter", function() {
+    hideAllOverlay();
     onFemmebot.style.visibility = "visible";
   });
 
   femmebot.addEventListener("touchstart", function() {
-    onFemmebot.style.visibility = "visible";
+    toggleViz(onFemmebot);
   });
 
   femmebot.addEventListener("mouseleave", function() {
@@ -139,20 +137,20 @@ function setup() {
   });
 
 
-  // ********************
-  // create and play video
-  video = createVideo(['assets/SHOWDOWN_H264.webm']);;
-  let videoWidth = document.querySelector("#videoDiv").offsetWidth;
-
-  video.parent("videoDiv");
-  video.id("videoEl");
-  document.querySelector("#videoEl").width = videoWidth - 80;
-  document.querySelector("#videoEl").height = videoWidth * 3 / 4;
-  // p.video.width = p.videoWidth;
-  // video.loop();
-  video.mouseOver(playVid);
-  video.mouseClicked(playVid);
-  video.mouseOut(pauseVid);
+  // // ********************
+  // // create and play video
+  // video = createVideo(['assets/SHOWDOWN_H264.webm']);;
+  // let videoWidth = document.querySelector("#videoDiv").offsetWidth;
+  //
+  // video.parent("videoDiv");
+  // video.id("videoEl");
+  // document.querySelector("#videoEl").width = videoWidth - 80;
+  // document.querySelector("#videoEl").height = videoWidth * 3 / 4;
+  // // p.video.width = p.videoWidth;
+  // // video.loop();
+  // video.mouseOver(playVid);
+  // video.mouseClicked(playVid);
+  // video.mouseOut(pauseVid);
 
 
 
@@ -163,10 +161,10 @@ function setup() {
     bubbleArray.push(new Bubble(windowWidth / 5, windowWidth / 5 + 10));
     bubbleArray.push(new Bubble(windowWidth * 3 / 5, windowWidth * 3 / 5 + 10));
     bubbleArray.push(new Bubble(windowWidth * 5 / 6, windowWidth * 5 / 6 + 10));
-    bubbleArray.push(new Bubble(windowWidth -33, windowWidth -50));
+    bubbleArray.push(new Bubble(windowWidth - 33, windowWidth - 50));
   }
 
-bubbleArrayLength = bubbleArray.length;
+  bubbleArrayLength = bubbleArray.length;
 
 
   // for p5 sketch
@@ -196,24 +194,43 @@ function draw() {
 
 }
 
+function toggleViz(_this) {
+  if (_this.style.visibility === "hidden") {
+    hideAllOverlay();
+    _this.style.visibility = "visible";
+  } else {
+    _this.style.visibility = "hidden"
+  }
+}
+
+function hideAllOverlay() {
+  allOverlay.forEach(function(el) {
+    el.style.visibility = "hidden";
+  })
+}
+
 
 function WidthChange(mq) {
 
   if (mq.matches) {
     // window width is at least 500px = browser
-
+    document.querySelector("#browser-content").style.display = "block";
+    document.querySelector("#mobile-content").style.display = "none";
   } else {
+    console.log("mobile")
+    document.querySelector("#mobile-content").style.display = "block";
+    document.querySelector("#browser-content").style.display = "none";
     // mobile phone
 
   }
 }
 
 function touchStarted() {
-    documentActive = true;
+  documentActive = true;
 }
 
 function mousePressed() {
-    documentActive = true;
+  documentActive = true;
 }
 
 function playVid() {
@@ -282,11 +299,15 @@ let canvasDivInstance = function(p) { // p could be any variable name
   p.canvas;
   // p.eraseButton = document.querySelector("#eraseButton");
 
+  p.mouseIsClickedHere = false;
+
   p.setup = function() {
     p.canvas = p.createCanvas(400, 300);
     // p.canvas.class("gameCanvas");
     // p.canvas.id("breakoutGameCanvas");
     // p.canvas.style("z-index: 5;");
+    p.canvas.mousePressed(localMouseClicked);
+    p.canvas.mouseReleased(localMouseUp);
 
 
     p.frameRate(30);
@@ -296,15 +317,32 @@ let canvasDivInstance = function(p) { // p could be any variable name
 
   p.draw = function() {
     // p.clear();
-    p.noStroke();
-    p.fill(225, 235, 255);
-    if (p.mouseX >= 10 && p.mouseX <= p.width - 10 && p.mouseY >= 10 && p.mouseY <= p.height - 10) {
-      p.ellipse(p.mouseX, p.mouseY, 20, 20);
+
+
+    p.stroke(0);
+    p.strokeWeight(3);
+    if (p.mouseIsClickedHere === true) {
+      p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
     }
+    // p.noStroke();
+    // p.fill(225, 235, 255);
+    // if (p.mouseX >= 10 && p.mouseX <= p.width - 10 && p.mouseY >= 10 && p.mouseY <= p.height - 10) {
+    //   p.ellipse(p.mouseX, p.mouseY, 20, 20);
+    // }
   };
 
   p.eraseCanvas = function() {
     p.clear();
+  }
+
+function localMouseClicked() {
+  console.log("hey")
+    p.mouseIsClickedHere = true;
+  }
+
+function localMouseUp() {
+  console.log("by")
+    p.mouseIsClickedHere = false;
   }
 };
 
