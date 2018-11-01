@@ -87,6 +87,14 @@ padding: 20px;
   color: #161616;
 }
 
+.relative {
+  position: absolute;
+  top: -30px;
+  left: 200px;
+  max-width: 666px;
+  background: #D31996;
+}
+
 .yellow {
   background: #D2DB21;
 }
