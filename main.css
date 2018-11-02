@@ -141,7 +141,9 @@ a:hover {
 }
 
 
-
+.gallery img {
+  width: 100%;
+}
 
 #onVr {
   top: 100px;
@@ -150,13 +152,21 @@ a:hover {
   background: #D31996;
 }
 
+/* #onVr img {
+  max-width: 300px;
+} */
+
 #onAi {
-  max-width: 133px;
+  max-width: 666px;
+  /* min-width: 400px; */
+  left: -50px;
 }
 
 #onFemmebot {
-  top: -200px;
-  left: -200px;
+  top: 33px;
+  /* top: -200px;
+  left: -200px; */
   max-width: 666px;
+  min-width: 500px;
   background: #D31996;
 }
