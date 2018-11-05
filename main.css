@@ -14,6 +14,12 @@ body {
   margin: 10px auto;
 }
 
+footer {
+  margin-top: 60px;
+  text-align: right;
+  font-size: 14px;
+}
+
 #bgCanvas {
   position: fixed;
   top: 0px;
@@ -27,6 +33,10 @@ body {
   background-repeat: no-repeat;
   background-attachment: local;
   background-position: center;
+}
+
+#mobile-content {
+  font-size: 16px;
 }
 
 p {

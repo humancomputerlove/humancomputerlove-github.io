@@ -212,17 +212,17 @@ function hideAllOverlay() {
 
 function WidthChange(mq) {
 
-  // if (mq.matches) {
-  //   // window width is at least 500px = browser
-  //   document.querySelector("#browser-content").style.display = "block";
-  //   document.querySelector("#mobile-content").style.display = "none";
-  // } else {
-  //   console.log("mobile")
-  //   document.querySelector("#mobile-content").style.display = "block";
-  //   document.querySelector("#browser-content").style.display = "none";
-  //   // mobile phone
-  //
-  // }
+  if (mq.matches) {
+    // window width is at least 500px = browser
+    document.querySelector("#browser-content").style.display = "block";
+    document.querySelector("#mobile-content").style.display = "none";
+  } else {
+    console.log("mobile")
+    document.querySelector("#mobile-content").style.display = "block";
+    document.querySelector("#browser-content").style.display = "none";
+    // mobile phone
+
+  }
 }
 
 function touchStarted() {
