@@ -1,31 +1,8 @@
 "use strict";
 
-let documentActive = false;
-
-let robots;
-let onRobots;
-let popperRobots;
-let vr;
-let onVr;
-let popperVr;
-let mr;
-let onMr;
-let popperMr;
-let ai;
-let onAi;
-let popperAi;
-let femmebot;
-let onFemmebot;
-let allOverlay;
-
-let eraseButton;
-
 let bubbleArray = [];
 let numOfBubbles = 69;
 let bubbleArrayLength;
-
-let video;
-
 
 
 
@@ -34,123 +11,6 @@ function setup() {
   canvas.parent('bgCanvas');
 
   frameRate(30);
-
-  // *******************
-  // pop ups
-  robots = document.querySelector('#robots');
-  onRobots = document.querySelector('#onRobots');
-  vr = document.querySelector('#vr');
-  onVr = document.querySelector('#onVr');
-  mr = document.querySelector('#mr');
-  onMr = document.querySelector('#onMr');
-  ai = document.querySelector('#ai');
-  onAi = document.querySelector('#onAi');
-  femmebot = document.querySelector('#femmebot');
-  onFemmebot = document.querySelector('#onFemmebot');
-
-  allOverlay = document.querySelectorAll('.overlay');
-
-  // code below causes overlay to appear on click, others appear on mouseOver
-
-  // robots.addEventListener("click", function() {
-  //   toggleViz(onRobots);
-  // });
-
-  //robots
-  robots.addEventListener("mouseenter", function() {
-    hideAllOverlay();
-    onRobots.style.visibility = "visible";
-  });
-
-  robots.addEventListener("mouseleave", function() {
-    onRobots.style.visibility = "hidden";
-  });
-
-  robots.addEventListener("touchstart", function() {
-    toggleViz(onRobots);
-  });
-
-
-  // virtual reality
-
-  vr.addEventListener("mouseenter", function() {
-    hideAllOverlay();
-    onVr.style.visibility = "visible";
-  });
-
-  vr.addEventListener("mouseleave", function() {
-    onVr.style.visibility = "hidden";
-  });
-
-  vr.addEventListener("touchstart", function() {
-    toggleViz(onVr);
-  });
-
-
-  // mixed reality
-
-  mr.addEventListener("mouseenter", function() {
-    hideAllOverlay();
-    onMr.style.visibility = "visible";
-  });
-
-  mr.addEventListener("mouseleave", function() {
-    onMr.style.visibility = "hidden";
-  });
-
-  mr.addEventListener("touchstart", function() {
-    toggleViz(onMr);
-  });
-
-
-
-  // ai
-
-  ai.addEventListener("mouseenter", function() {
-    hideAllOverlay();
-    onAi.style.visibility = "visible";
-  });
-
-  ai.addEventListener("touchstart", function() {
-    toggleViz(onAi);
-  });
-
-  ai.addEventListener("mouseleave", function() {
-    onAi.style.visibility = "hidden";
-  });
-
-
-  // femmebot
-
-
-  femmebot.addEventListener("mouseenter", function() {
-    hideAllOverlay();
-    onFemmebot.style.visibility = "visible";
-  });
-
-  femmebot.addEventListener("touchstart", function() {
-    toggleViz(onFemmebot);
-  });
-
-  femmebot.addEventListener("mouseleave", function() {
-    onFemmebot.style.visibility = "hidden";
-  });
-
-
-  // // ********************
-  // // create and play video
-  // video = createVideo(['assets/SHOWDOWN_H264.webm']);;
-  // let videoWidth = document.querySelector("#videoDiv").offsetWidth;
-  //
-  // video.parent("videoDiv");
-  // video.id("videoEl");
-  // document.querySelector("#videoEl").width = videoWidth - 80;
-  // document.querySelector("#videoEl").height = videoWidth * 3 / 4;
-  // // p.video.width = p.videoWidth;
-  // // video.loop();
-  // video.mouseOver(playVid);
-  // video.mouseClicked(playVid);
-  // video.mouseOut(pauseVid);
 
 
 
@@ -167,10 +27,6 @@ function setup() {
   bubbleArrayLength = bubbleArray.length;
 
 
-  // for p5 sketch
-  eraseButton = document.querySelector("#eraseButton");
-
-
   // media query event handler
   if (matchMedia) {
     const mq = window.matchMedia("(min-width: 500px) and (min-height: 500px)");
@@ -184,6 +40,7 @@ function draw() {
   clear();
 
   noStroke();
+
   for (let i = 0; i < bubbleArrayLength; i++) {
     bubbleArray[i].drawBubble();
 
@@ -192,21 +49,6 @@ function draw() {
     bubbleArray[i].checkBounds();
   }
 
-}
-
-function toggleViz(_this) {
-  if (_this.style.visibility === "hidden") {
-    hideAllOverlay();
-    _this.style.visibility = "visible";
-  } else {
-    _this.style.visibility = "hidden"
-  }
-}
-
-function hideAllOverlay() {
-  allOverlay.forEach(function(el) {
-    el.style.visibility = "hidden";
-  })
 }
 
 
@@ -225,23 +67,6 @@ function WidthChange(mq) {
   // }
 }
 
-function touchStarted() {
-  documentActive = true;
-}
-
-function mousePressed() {
-  documentActive = true;
-}
-
-function playVid() {
-  if (documentActive) {
-    video.loop();
-  }
-}
-
-function pauseVid() {
-  video.pause();
-}
 
 class Bubble {
   constructor(_xStart, _xEnd) {
@@ -291,59 +116,3 @@ class Bubble {
     }
   }
 }
-
-
-
-let canvasDivInstance = function(p) { // p could be any variable name
-
-  p.canvas;
-  // p.eraseButton = document.querySelector("#eraseButton");
-
-  p.mouseIsClickedHere = false;
-
-  p.setup = function() {
-    p.canvas = p.createCanvas(400, 300);
-    // p.canvas.class("gameCanvas");
-    // p.canvas.id("breakoutGameCanvas");
-    // p.canvas.style("z-index: 5;");
-    p.canvas.mousePressed(localMouseClicked);
-    p.canvas.mouseReleased(localMouseUp);
-
-
-    p.frameRate(30);
-
-    eraseButton.addEventListener("click", p.eraseCanvas);
-  };
-
-  p.draw = function() {
-    // p.clear();
-
-
-    p.stroke(0);
-    p.strokeWeight(3);
-    if (p.mouseIsClickedHere === true) {
-      p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
-    }
-    // p.noStroke();
-    // p.fill(225, 235, 255);
-    // if (p.mouseX >= 10 && p.mouseX <= p.width - 10 && p.mouseY >= 10 && p.mouseY <= p.height - 10) {
-    //   p.ellipse(p.mouseX, p.mouseY, 20, 20);
-    // }
-  };
-
-  p.eraseCanvas = function() {
-    p.clear();
-  }
-
-function localMouseClicked() {
-  console.log("hey")
-    p.mouseIsClickedHere = true;
-  }
-
-function localMouseUp() {
-  console.log("by")
-    p.mouseIsClickedHere = false;
-  }
-};
-
-let canvasDiv = new p5(canvasDivInstance, 'canvasDiv');
