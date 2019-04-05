@@ -25,64 +25,81 @@
 </head>
 
 <body>
-  <!-- <ul class="links">
-    <li><a class="activeLink" href="/">home</a></li>
-    <li><a class="greenLink" href="projects/index.html">projects</a></li>
-    <li><a class="pinkLink" href="about/bio-CV.html">bio/CV</a></li>
-    <li><a class="chartreuseLink" href="about/contact.html">contact</a></li>
-    <li><img class="platform" src="assets/stripes/platform_small.svg" alt="Lark Alder or Lark VCR, aka Virtually Conflicted Reality">
-  </ul> -->
   <div id="bgCanvas">
   </div>
 
+  <nav class="navbar navbar-custom fixed-top navbar-expand-lg navbar-light bg-transparent">
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link btn btn-lg post" href="#">about<span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link btn btn-lg post" href="post/index.html" role="button">
+            post personal</a>
+          <!-- <a class="nav-link" href="#">post</a> -->
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle btn btn-lg post" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            filter
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item pink" href="#">Action</a>
+            <a class="dropdown-item purple" href="#">Another action</a>
+            <a class="dropdown-item green" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="container">
     <div class="jumbotron">
       <h1 class="display-7 display-md-5">human-computer love | personals</h1>
       <p class="lead"> intimate futures think/fish/shark tank </p>
-      <p> radical possibility for virtual intimacy and machine coitus</p>
-      <p>
-        <a class="btn btn-lg btn-success submit" href="post/index.html" role="button">
+      <!-- <p> radical possibility for virtual intimacy and machine coitus</p> -->
+      <!-- <p>
+        <a class="btn btn-lg btn-success post" href="post/index.html" role="button">
           Post Personal</a>
-      </p>
+      </p> -->
     </div>
 
-    <div class="row gallery">
-      <div class="col-md-4 cell pink hoverBlack">
-        <p>Blooming. Sexual flower with anatomy for both reception and penetration. Only blooms at specific times in the day.</p>
+    <div class="row gallery justify-content-around">
+      <div class="col-md-3 m-2 h-25 cell pink hoverBlack">
+        <h4 class="personalsTitle">Seeking sex flower</h4>
+        <p class="personalsText">Blooming. Sexual flower with anatomy for both reception and penetration. Only blooms at specific times in the day.</p>
+        <p class="contact">beefyjuice@aol.com</p>
       </div>
-      <div class="col-md-4 cell purple hoverBlack">
+      <div class="col-md-3 m-2 h-25 cell purple hoverBlack">
+        <h4 class="personalsTitle">Computer seeks cosleeper</h4>
         <p>Large co-sleeper pillow with heart rate and warmth and several genitalia options from a long john butt-flap</p>
       </div>
-      <div class="col-md-4 cell green hoverBlack" id="femmebot">
+      <div class="col-md-3 m-2 h-25 cell green hoverBlack">
         <p>Femmebot, alternative to fembot. </p>
         <p>The culture of desire around "fembots" is based on total domination of the female body. Drawing on the self-determined queer femme identity, what would an empowered Femmebot be like? </p>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 cell hoverBlack">
-        <p>VR dungeon scene where AI avatars are models for practicing consent </p>
+      <div class="col-md-3 m-2 h-25 cell pink hoverBlack">
+        <p>Blooming. Sexual flower with anatomy for both reception and penetration. Only blooms at specific times in the day.</p>
       </div>
-      <div class="col-md-4 cell hoverBlack">Sex device that pulls live tide and swell data so you can get fucked by the rhythm of the ocean</div>
-      <div class="col-md-4 cell hoverBlack">
-        <p>(this exists!) BeAnotherLab's gender swap VR experience</p>
+      <div class="col-md-3 m-2 h-25 cell purple hoverBlack">
+        <p>Large co-sleeper pillow with heart rate and warmth and several genitalia options from a long john butt-flap</p>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-4 cell hoverBlack">MR software that attaches images/video that you upload to your real-world vibrator</div>
-      <div class="col-4 cell hoverBlack">
-        <p>Sex biodata: MR that shows my partners heart rate, skin temp, arousal </p>
-      </div>
-      <div class="col-4 cell hoverBlack">
-        Mixed Reality software that attaches/projects uploaded images onto a vibrator while in use. Holographic fantasy! You can also program it as an AI chatbot for dirty talk / role play.
+      <div class="col-md-3 m-2 h-25 cell green hoverBlack">
+        <p>Femmebot, alternative to fembot. </p>
+        <p>The culture of desire around "fembots" is based on total domination of the female body. Drawing on the self-determined queer femme identity, what would an empowered Femmebot be like? </p>
       </div>
     </div>
   </div>
 
 
   <footer class="page-footer">
-    <p>-------- work-in-progress by <a href="https://larkvcr.com/">Lark VCR</a> | contact: humancomputerlove@gmail.com</p>
+    <p>--------> work-in-progress by <a href="https://larkvcr.com/">Lark VCR</a> | contact: humancomputerlove@gmail.com --------></p>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
