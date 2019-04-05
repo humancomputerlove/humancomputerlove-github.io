@@ -1,5 +1,7 @@
 "use strict";
 
+// add perlin noise back https://www.youtube.com/watch?v=BjoM9oKOAKY&list=PLRqwX-V7Uu6bgPNQAdxQZpJuJCjeOr7VD&index=7&t=0s
+
 let bubbleArray = [];
 let numOfBubbles = 69;
 let bubbleArrayLength;

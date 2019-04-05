@@ -1,5 +1,10 @@
 /* By Lark VCR. "In construction" */
 
+html, body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
 body {
   /* margin: 50px 50px 50px 7%; */
   /* font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; */
@@ -14,40 +19,60 @@ body {
   /* margin: auto; */
 }
 
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.page-footer {
+
+.header, .marketing, .page-footer {
   padding-right: 1rem;
   padding-left: 1rem;
 }
 
-/* Customize navbar */
-.navbar-custom {
 
+/* Customize navbar */
+
+.navbar-default {
+  background-color: #161616;
+  /* border-color: #E7E7E7; */
 }
+
+.navbar-custom {}
+
+
 /* change the brand and text color */
-.navbar-custom .navbar-brand,
-.navbar-custom .navbar-text {
-    color: #3ac952;
+.navbar-custom .navbar-brand, .navbar-custom .navbar-text {
+  color: #3ac952;
 }
+
+
 /* change the link color */
-.navbar-custom .nav-item.active .nav-link,
-.navbar-custom .navbar-nav .nav-link {
-    color: #D2DB21;
+.navbar-custom .nav-item.active .nav-link, .navbar-custom .navbar-nav .nav-link {
+  color: #D2DB21;
 }
+
+
 /* change the color of active or hovered links */
 .navbar-custom .nav-item:hover .nav-link {
-    color: #161616;
+  color: #D31996;
 }
+
 
 /* style dropdown menu */
 .navbar-custom .dropdown-menu {
   padding: 0;
 }
 
+/* change hamburger toggler color */
+.custom-toggler .navbar-toggler {
+    border-color: #D2DB21;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(210, 219, 33, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
 
 /* button styling */
+
 .post {
   /* font-size: 24px; */
   background-color: #161616;
@@ -63,7 +88,9 @@ body {
 
 
 /* Customize page footer */
+
 .page-footer {
+  height: 60px;
   margin-top: 1rem;
   padding-top: 1.5rem;
   color: #777;
@@ -72,7 +99,21 @@ body {
   font-size: 14px;
 }
 
+
+/* sticky footer */
+
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+
 /* Customize container */
+
 @media (min-width: 48em) {
   .container {
     max-width: 70rem;
@@ -81,6 +122,7 @@ body {
 
 
 /* Main gallery message and sign up button */
+
 .jumbotron {
   text-align: center;
   /* border-bottom: .05rem solid #e5e5e5; */
@@ -92,25 +134,29 @@ body {
   font-size: 1.5rem;
 }
 
+
 /* gallery content */
+
 .gallery {
   margin: 3rem 0;
 }
-.gallery p + h4 {
+
+.gallery p+h4 {
   /* margin-top: 1.5rem; */
 }
 
 .contact {
-  text-align: right;
+  /* text-align: right; */
   font-size: .8rem;
+  padding-bottom: 0;
 }
 
+
 /* Responsive: Portrait tablets and up */
+
 @media screen and (min-width: 48em) {
   /* Remove the padding we set earlier */
-  .header,
-  .gallery,
-  .footer {
+  .header, .gallery, .footer {
     padding-right: 0;
     padding-left: 0;
   }
@@ -124,8 +170,6 @@ body {
   }
 }
 
-
-
 #bgCanvas {
   position: fixed;
   top: 0px;
@@ -133,9 +177,8 @@ body {
   z-index: -2;
 }
 
-
 .cell {
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   /* margin: 1rem; */
   background-color: #e0e1debb;
   /* background-color: #f7f7f733; */
@@ -145,15 +188,12 @@ body {
   border-color: #8f9091;
   box-shadow: 0px 0px 5px #8f9091;
   /* border-radius: 80px; */
-
 }
-
 
 .hoverBlack:hover, .blackText {
   background-color: #161616;
   color: #D2DB21;
 }
-
 
 .noHover {
   background-color: #e0e1debb;
