@@ -1,5 +1,7 @@
 /* By Lark VCR. "In construction" */
 
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+
 html, body {
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
@@ -8,7 +10,7 @@ html, body {
 body {
   /* margin: 50px 50px 50px 7%; */
   /* font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; */
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family: "Lucida Console", "Courier", monospace;
   font-size: 16px;
   line-height: 1.7;
   padding-top: 1.5rem;
@@ -132,6 +134,10 @@ body {
 .jumbotron .btn {
   padding: .75rem 1.5rem;
   font-size: 1.5rem;
+}
+
+.jumbotron h1 {
+    font-family: "Ubuntu Mono", "Lucida Console", "Courier", monospace;
 }
 
 
