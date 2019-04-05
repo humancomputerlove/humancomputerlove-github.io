@@ -170,12 +170,20 @@ body {
   }
 }
 
-#bgCanvas {
+#bubbleCanvas {
   position: fixed;
   top: 0px;
   left: 0px;
   z-index: -2;
 }
+
+#bgCanvas {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -3;
+}
+
 
 .cell {
   padding: 1rem 1rem 0 1rem;
