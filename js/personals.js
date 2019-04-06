@@ -113,16 +113,27 @@ function WidthChange(mq) {
   // }
 }
 
+
+
 function createPersonals() {
   personalsCreated = true;
 
   document.querySelector("#loading").style.visibility = "hidden";
 
-  allDataArray.forEach(function(post){
+  // shuffle entries
+  for (let i = allDataArray.length - 1; i >= 0; i--) {
+    let randomIndex = Math.floor(Math.random() * (i + 1));
+    let itemAtIndex = allDataArray[randomIndex];
+
+    allDataArray[randomIndex] = allDataArray[i];
+    allDataArray[i] = itemAtIndex;
+  }
+
+  // create post for each entry
+  allDataArray.forEach(function(post) {
     createCell(post.timeStamp, post.postType, post.postTitle, post.postText, post.contact, post.likes, post.flags);
   });
 
-  // createCell("humanSeeksComputer", "testing", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in", "test contact", 10);
 }
 
 function createCell(_id, _type, _title, _text, _contact, _likes, _flags) {
@@ -144,9 +155,9 @@ function createCell(_id, _type, _title, _text, _contact, _likes, _flags) {
 
   let colSize;
   // set col size
-  if (_text.length > 300) {
+  if (_text.length + _title.length * 4 > 400) {
     colSize = `col-md-5`;
-  } else if (_text.length > 200) {
+  } else if (_text.length + _title.length * 4 > 300) {
     colSize = `col-md-4`;
   } else {
     colSize = `col-md-3`;
@@ -161,7 +172,7 @@ function createCell(_id, _type, _title, _text, _contact, _likes, _flags) {
 
 
   let post = document.createElement("div");
-  post.className = `${colSize} m-2 h-25 cell ${cellColor}`;
+  post.className = `${colSize} m-2 h-25 cell ${cellColor} `;
   post.id = `${_id}`;
   post.innerHTML = html;
 
