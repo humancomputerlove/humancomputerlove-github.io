@@ -6,9 +6,6 @@ let bubbleArray = [];
 let numOfBubbles = 69;
 let bubbleArrayLength;
 
-let questionA0;
-let questionA1;
-
 // store name as firebase key
 // let userName;
 let userData;
@@ -63,7 +60,7 @@ function setup() {
   let intimacyButton = document.querySelector("#intimacy");
   let businessButton = document.querySelector("#business");
 
-// store back buttons
+  // store back buttons
   let a1_back = document.querySelector("#a1_back");
   let a2_back = document.querySelector("#a2_back");
   let b1_back = document.querySelector("#b1_back");
@@ -102,48 +99,76 @@ function setup() {
   }
 
   // back buttons
-  a1_back.onclick = function(){
+  a1_back.onclick = function() {
     a0.style.display = "block";
     a1.style.display = "none";
   }
 
-  a2_back.onclick = function(){
+  a2_back.onclick = function() {
     a1.style.display = "block";
     a2.style.display = "none";
   }
 
-  b1_back.onclick = function(){
+  b1_back.onclick = function() {
     a1.style.display = "block";
     b1.style.display = "none";
   }
 
-  c1_back.onclick = function(){
+  c1_back.onclick = function() {
     a0.style.display = "block";
     c1.style.display = "none";
   }
 
 
-// a2 human seeks computer submit
-a2_submit.onclick = function(){
+  // a2 human seeks computer submit
+  a2_submit.onclick = function() {
+    if (document.querySelector('#a2_postTitle').value && document.querySelector('#a2_postText').value && document.querySelector('#a2_postContact').value && document.querySelector('input[name="desiredBodyType"]:checked')) {
+      bodyType = document.querySelector('input[name="desiredBodyType"]:checked').value;
+      postTitle = document.querySelector('#a2_postTitle').value;
+      postText = document.querySelector('#a2_postText').value;
+      contact = document.querySelector('#a2_postContact').value;
 
+      savePersonalsData();
+      createPersonalsNode();
+      window.location.href = '../congrats/index.html';
+    } else {
+      alert("please fill out all fields.")
+    }
+  }
 
-  bodyType = document.querySelector('input[name="desiredBodyType"]:checked').value;
-  postTitle = document.querySelector('#a2_postTitle').value;
-  postText = document.querySelector('#a2_postText').value;
-  contact = document.querySelector('#a2_postContact').value;
+  // b1 seeking business partner submit
+  b1_submit.onclick = function() {
+    if (document.querySelector('#b1_postTitle').value && document.querySelector('#b1_postText').value && document.querySelector('#b1_postContact').value) {
+      bodyType = null;
+      postTitle = document.querySelector('#b1_postTitle').value;
+      postText = document.querySelector('#b1_postText').value;
+      contact = document.querySelector('#b1_postContact').value;
 
-  savePersonalsData();
-  createPersonalsNode();
-  window.location.href = '../congrats/index.html';
-}
+      savePersonalsData();
+      createPersonalsNode();
+      window.location.href = '../congrats/index.html';
+    } else {
+      alert("please fill out all fields.")
+    }
+  }
 
+  // c1 computer seeks human submit
+  c1_submit.onclick = function() {
+    if (document.querySelector('#c1_postTitle').value && document.querySelector('#c1_postText').value && document.querySelector('#c1_postContact').value && document.querySelector('input[name="computerBody"]:checked')) {
+      bodyType = document.querySelector('input[name="computerBody"]:checked').value;
+      postTitle = document.querySelector('#c1_postTitle').value;
+      postText = document.querySelector('#c1_postText').value;
+      contact = document.querySelector('#c1_postContact').value;
 
+      savePersonalsData();
+      createPersonalsNode();
+      window.location.href = '../congrats/index.html';
+    } else {
+      alert("please fill out all fields.")
+    }
+  }
 
-
-// b1 seeking business partner
-
-// c1 computer seeks human
-// userData.bodyType = document.querySelector('input[name="computerBody"]:checked').value;
+  // userData.bodyType = document.querySelector('input[name="computerBody"]:checked').value;
 
 
 
@@ -190,11 +215,8 @@ a2_submit.onclick = function(){
 
 
   let ref = database.ref('personals');
-  // ref.push({test: "hello"});
   ref.on('value', gotData, errData);
 
-  // userData = {test: "this is a test"}
-  // createPersonalsNode();
 }
 
 function draw() {
@@ -219,27 +241,3 @@ function WidthChange(mq) {
   //
   // }
 }
-
-
-
-
-let canvasDivInstance = function(p) { // p could be any variable name
-
-  p.canvas;
-  // p.eraseButton = document.querySelector("#eraseButton");
-
-
-  p.setup = function() {
-    p.canvas = p.createCanvas(windowWidth, windowHeight);
-    p.canvas.parent('bgCanvas');
-    // p.background(100, 100, 100);
-  };
-
-  p.draw = function() {
-
-  };
-
-
-}
-
-let canvasDiv = new p5(canvasDivInstance, 'canvasDiv');

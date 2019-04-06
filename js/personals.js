@@ -6,6 +6,14 @@ let bubbleArray = [];
 let numOfBubbles = 69;
 let bubbleArrayLength;
 
+let userData;
+let allData;
+let allDataArray;
+let database;
+let keys;
+
+let personalsCreated = false;
+
 
 // function loadItem(index, filename) {
 //   loadSound(filename, soundLoaded);
@@ -54,6 +62,26 @@ function setup() {
     WidthChange(mq);
   }
 
+  // Initialize Firebase
+  let config = {
+    apiKey: "AIzaSyDllsUmTj6d55EqybvIBNSLnM0lvL7Z0aw",
+    authDomain: "humancomputerlove-436b7.firebaseapp.com",
+    databaseURL: "https://humancomputerlove-436b7.firebaseio.com",
+    projectId: "humancomputerlove-436b7",
+    storageBucket: "humancomputerlove-436b7.appspot.com",
+    messagingSenderId: "63005466495"
+  };
+
+  firebase.initializeApp(config);
+
+  database = firebase.database();
+
+
+  let ref = database.ref('personals');
+  ref.on('value', gotData, errData);
+
+  createPersonals();
+
 }
 
 function draw() {
@@ -61,6 +89,10 @@ function draw() {
   noStroke();
 
   drawBubbles();
+
+  if (allData && !personalsCreated) {
+    createPersonals();
+  }
 }
 
 
@@ -79,26 +111,50 @@ function WidthChange(mq) {
   // }
 }
 
+function createPersonals() {
+  personalsCreated = true;
 
+  document.querySelector("#loading").style.visibility = "hidden";
 
-
-let canvasDivInstance = function(p) { // p could be any variable name
-
-  p.canvas;
-  // p.eraseButton = document.querySelector("#eraseButton");
-
-
-  p.setup = function() {
-    p.canvas = p.createCanvas(windowWidth, windowHeight);
-    p.canvas.parent('bgCanvas');
-    // p.background(100, 100, 100);
-  };
-
-  p.draw = function() {
-
-  };
-
-
+  // var div = document.createElement('div');
+  // div.innerHTML = "my <b>new</b> skill - <large>DOM maniuplation!</large>";
+  // // set style
+  // div.style.color = 'red';
+  // // better to use CSS though - just set class
+  // div.setAttribute('class', 'myclass'); // and make sure myclass has some styles in css
+  // document.body.appendChild(div);
 }
 
-let canvasDiv = new p5(canvasDivInstance, 'canvasDiv');
+function createCell(_type, _title, _text, _contact, _likes, _flags) {
+  let cellColor;
+
+  switch (_type) {
+    case "humanSeeksComputer":
+      cellColor = "pink";
+      break;
+    case "computerSeeksHuman":
+      cellColor = "purple";
+      break;
+    case "seekingBusinessPartner":
+      cellColor = "green";
+      break;
+  }
+
+
+  html = `<div class="col-md-3 m-2 h-25 cell ${cellColor} ">
+            <h4 class="personalsTitle">${_title}</h4>
+            <p class="personalsText">${_text}</p>
+            <p class="contact">beefyjuice@aol.com</p>
+            <p class="text-right"> <a href="javascript:void(0)" onclick="">like</a>
+              <a href="javascript:void(0)" onclick="">flag</a><br><span class="likes">0</span> likes</p>
+
+          </div>`
+  $('body').append(html);
+  $("#dynamicModal").modal();
+  $("#dynamicModal").modal('show');
+
+  $('#dynamicModal').on('hidden.bs.modal', function(e) {
+    $(this).remove();
+  });
+
+}

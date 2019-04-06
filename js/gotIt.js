@@ -3,13 +3,11 @@
 function gotData(data) {
   // need to retrieve firebase data with val() method
   allData = data.val();
-  console.log(allData);
   allDataArray = Object.values(allData);
   // numberPersonals = allDataArray.length;
 
   // create array of keys (traumagotchi names)
   keys = Object.keys(allData);
-  console.log(`keys are ${keys}`)
 }
 
 function errData(err) {
