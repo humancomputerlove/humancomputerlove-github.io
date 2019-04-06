@@ -4,22 +4,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>human-computer love</title>
+  <title>h-c love | post</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="robots" content="follow">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <!-- <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"> -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
   <script src="../libraries/p5.js" type="text/javascript"></script>
   <script src="../libraries/p5.dom.js" type="text/javascript"></script>
   <script src="../libraries/p5.sound.js" type="text/javascript"></script>
   <!-- <script src="libraries/p5.play.js" type="text/javascript"></script> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" href="../main.css">
-  <script src="../sketch.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" type="text/css" href="../css/post.css">
+  <script src="../js/post.js" type="text/javascript"></script>
+  <script src="../js/bubble.js" type="text/javascript"></script>
+  <script src="../js/gotIt.js" type="text/javascript"></script>
 
 
 </head>
@@ -72,149 +75,151 @@
           Post Personal</a>
       </p> -->
       </div>
-      <div class="" id="question0">
-
-
-        <div class="row justify-content-center" id="A0-humanOrComputer">
+      <div class="" id="a0_humanOrComputer">
+        <div class="row justify-content-center">
           <div class="col">
             <h4 class="text-center">are you a human or are you a computer?</h4>
           </div>
         </div>
         <div class="row gallery justify-content-center">
           <div class="col-md-3 m-2 h-25">
-            <a class="btn btn-lg pink hoverBlack" href="#questionA1" role="button" style="width: 100%;">
-            human</a>
+            <a class="btn btn-lg pink hoverBlack" href="javascript:void(0)" id="human" role="button" style="width: 100%;">
+              <!-- <a class="btn btn-lg pink hoverBlack" href="#a1-intimateOrBusiness" id="human" role="button" style="width: 100%;"> -->
+              human</a>
           </div>
           <div class="col-md-3 m-2 h-25">
-            <a class="btn btn-lg green hoverBlack" href="#" role="button" style="width: 100%;">
-            computer</a>
+            <a class="btn btn-lg green hoverBlack" href="javascript:void(0)" id="computer" role="button" style="width: 100%;">
+              <!-- <a class="btn btn-lg green hoverBlack" href="#c1-computerSeeksHuman" id="computer" role="button" style="width: 100%;"> -->
+              computer</a>
           </div>
         </div>
       </div>
       <!-- response human -->
-      <div class="row justify-content-center " id="A1-intimateOrBusiness">
-        <!-- choose personals or starting business -->
-        <div class="col mt-5">
-          <h5 class="text-center">are you looking for an [intimate companion] or finding a business partner?</h5>
-        </div>
-      </div>
-      <div class="row gallery justify-content-center">
-        <div class="col-md-3 m-2 ">
-          <a class="btn btn-lg green hoverBlack" href="#questionA2" role="button" style="width: 100%;">
+      <div class="" id="a1_intimateOrBusiness">
+        <a class="btn btn-sm hoverBlack text-right" href="javascript:void(0)" id="a1_back" role="button">
+          < back</a>
+            <div class="row justify-content-center">
+              <!-- choose personals or starting business -->
+              <div class="col">
+                <h5 class="text-center">are you looking for an [intimate companion] or finding a business partner?</h5>
+              </div>
+            </div>
+
+            <div class="row gallery justify-content-center">
+              <div class="col-md-3 m-2 ">
+                <a class="btn btn-lg green hoverBlack" href="javascript:void(0)" role="button" id="intimacy" style="width: 100%;">
           intimacy</a>
-        </div>
-        <div class="col-md-3 m-2 ">
-          <a class="btn btn-lg purple hoverBlack" href="#questionB1" role="button" style="width: 100%;">
+              </div>
+              <div class="col-md-3 m-2 ">
+                <a class="btn btn-lg purple hoverBlack" href="javascript:void(0)" role="button" id="business" style="width: 100%;">
           business</a>
-        </div>
+              </div>
+            </div>
       </div>
-    </div>
-    <!-- response intimacy -->
-    <div class="row justify-content-center" id="A2-humanSeeksComputer">
-      <div class="col-md-8 mt-5">
-        <h3>human seeks computer</h3>
-      </div>
-      <div class="col-md-8 mt-4 m-2 ">
-        <h5>what are you looking for?</h5>
-        <div class="" id="typeRadio">
-          <input type="radio" name="type" value="chatbot"> ai chatbot (no body)<br>
-          <input type="radio" name="type" value="vr"> virtual reality companion<br>
-          <input type="radio" name="type" value="mr"> mixed/augmented reality companion<br>
-          <input type="radio" name="type" value="humanoid"> robot (humanoid) <br>
-          <input type="radio" name="type" value="humanesque"> robot (humanesque) <br>
-          <input type="radio" name="type" value="nonanthro"> robot (non-anthropomorphic) <br>
-          <input type="radio" name="type" value="other"> Other
-        </div>
-      </div>
-      <div class="col-md-8 mt-4 m-2 ">
-        <h5>personals ad title</h5>
-        <textarea class="" maxlength="60" id="adTitle" cols="60" rows="1" placeholder="something catchy" style="max-width: 90%;"></textarea>
-      </div>
-      <div class="col-md-8 mt-4 m-2 ">
-        <h5>personals ad text</h5>
-        <textarea class="" maxlength="420" id="adText" cols="60" rows="7" placeholder="maximum 400 characters" style="max-width: 90%;"></textarea>
-      </div>
-      <div class="col-md-8 mt-4 m-2 ">
-        <h5>contact / meeting place</h5>
-        <textarea class="" maxlength="60" id="adContact" cols="60" rows="1" placeholder='email/phone/handle or "meet me at the..."' style="max-width: 90%;"></textarea>
-      </div>
-      <div class="col-md-8 m-2 ">
-        <a class="btn btn-md purple hoverBlack" href="../congrats/index.html" role="button">
+      <!-- response intimacy -->
+      <div class="" id="a2_humanSeeksComputer">
+        <a class="btn btn-sm hoverBlack text-right" href="javascript:void(0)" id="a2_back" role="button">
+          < back</a>
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <h3>human seeks computer</h3>
+              </div>
+              <div class="col-md-8 mt-4 m-2 ">
+                <h5>what are you looking for?</h5>
+                <div class="" id="typeRadio">
+                  <input type="radio" name="desiredBodyType" value="chatbot"> ai chatbot (no body)<br>
+                  <input type="radio" name="desiredBodyType" value="vr"> virtual reality companion<br>
+                  <input type="radio" name="desiredBodyType" value="mr"> mixed/augmented reality companion<br>
+                  <input type="radio" name="desiredBodyType" value="humanoid"> robot (humanoid) <br>
+                  <input type="radio" name="desiredBodyType" value="humanesque"> robot (humanesque) <br>
+                  <input type="radio" name="desiredBodyType" value="nonanthro"> robot (non-anthropomorphic) <br>
+                  <input type="radio" name="desiredBodyType" value="other"> other
+                </div>
+              </div>
+              <div class="col-md-8 mt-4 m-2 ">
+                <h5>personals ad title</h5>
+                <textarea class="" maxlength="60" id="a2_postTitle" cols="60" rows="1" placeholder="something catchy" style="max-width: 90%;"></textarea>
+              </div>
+              <div class="col-md-8 mt-4 m-2 ">
+                <h5>personals ad text</h5>
+                <textarea class="" maxlength="420" id="a2_postText" cols="60" rows="7" placeholder="maximum 400 characters" style="max-width: 90%;"></textarea>
+              </div>
+              <div class="col-md-8 mt-4 m-2 ">
+                <h5>contact / meeting place</h5>
+                <textarea class="" maxlength="60" id="a2_postContact" cols="60" rows="1" placeholder='email/phone/handle or "meet me at the..."' style="max-width: 90%;"></textarea>
+              </div>
+              <div class="col-md-8 m-2 ">
+                <a class="btn btn-md purple hoverBlack" href="javascript:void(0)" id="a2_submit" role="button">
         submit</a>
+              </div>
+            </div>
       </div>
-    </div>
-    <!-- response starting business -->
-    <div class="row justify-content-center" id="B1-humanSeeksBusiness">
-      <div class="col-md-8 mt-5">
-        <h3>human seeks business partner</h3>
-      </div>
-
-      <!-- <div class="col-md-8 mt-4 m-2 ">
-        <h5>how do you identify?</h5>
-        <div class="" id="typeRadio">
-          <input type="radio" name="type" value="chatbot"> ai chatbot (no body)<br>
-          <input type="radio" name="type" value="vr"> virtual reality companion<br>
-          <input type="radio" name="type" value="mr"> mixed/augmented reality companion<br>
-          <input type="radio" name="type" value="humanoid"> robot (humanoid) <br>
-          <input type="radio" name="type" value="humanesque"> robot (humanesque) <br>
-          <input type="radio" name="type" value="nonanthro"> robot (non-anthropomorphic) <br>
-          <input type="radio" name="type" value="other"> Other
-        </div>
-      </div> -->
-      <div class="col-md-8 mt-4 m-2 ">
-        <h5>ad title</h5>
-        <textarea class="" maxlength="60" id="adTitle" cols="60" rows="1" placeholder="something catchy" style="max-width: 90%;"></textarea>
-      </div>
-      <div class="col-md-8 mt-4 m-2 ">
-        <h5>ad text</h5>
-        <textarea class="" maxlength="420" id="adText" cols="60" rows="7" placeholder="maximum 400 characters" style="max-width: 90%;"></textarea>
-      </div>
-      <div class="col-md-8 mt-4 m-2 ">
-        <h5>contact / meeting place</h5>
-        <textarea class="" maxlength="60" id="adContact" cols="60" rows="1" placeholder='email/phone/handle or "meet me at the..."' style="max-width: 90%;"></textarea>
-      </div>
-      <div class="col-md-8 m-2 ">
-        <a class="btn btn-md purple hoverBlack" href="../congrats/index.html" role="button">
+      <!-- response starting business -->
+      <div class="" id="b1_humanSeeksBusiness">
+        <a class="btn btn-sm hoverBlack text-right" href="javascript:void(0)" id="b1_back" role="button">
+          < back</a>
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <h3>human seeks business partner</h3>
+              </div>
+              <div class="col-md-8 mt-4 m-2 ">
+                <h5>ad title</h5>
+                <textarea class="" maxlength="60" id="b1_postTitle" cols="60" rows="1" placeholder="something catchy" style="max-width: 90%;"></textarea>
+              </div>
+              <div class="col-md-8 mt-4 m-2 ">
+                <h5>ad text</h5>
+                <textarea class="" maxlength="420" id="b1_postText" cols="60" rows="7" placeholder="maximum 400 characters" style="max-width: 90%;"></textarea>
+              </div>
+              <div class="col-md-8 mt-4 m-2 ">
+                <h5>contact / meeting place</h5>
+                <textarea class="" maxlength="60" id="b1_postContact" cols="60" rows="1" placeholder='email/phone/handle or "meet me at the..."' style="max-width: 90%;"></textarea>
+              </div>
+              <div class="col-md-8 m-2 ">
+                <a class="btn btn-md purple hoverBlack" href="javascript:void(0)" id="b1_submit" role="button">
         submit</a>
+              </div>
+            </div>
       </div>
-    </div>
+      <!-- response computer -->
+      <div class="" id="c1_computerSeeksHuman">
+        <a class="btn btn-sm hoverBlack text-right" href="javascript:void(0)" id="c1_back" role="button">
+          < back</a>
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <h3>computer seeks human</h3>
+              </div>
 
-    <!-- response computer -->
-    <div class="row justify-content-center" id="C1-computerSeeksHuman">
-      <div class="col-md-8 mt-5">
-        <h3>computer seeks human</h3>
-      </div>
-
-      <div class="col-md-8 mt-4 m-2 ">
-        <h5>how do you identify?</h5>
-        <div class="" id="typeRadio">
-          <input type="radio" name="type" value="chatbot"> ai chatbot (no body)<br>
-          <input type="radio" name="type" value="vr"> virtual reality companion<br>
-          <input type="radio" name="type" value="mr"> mixed/augmented reality companion<br>
-          <input type="radio" name="type" value="humanoid"> robot (humanoid) <br>
-          <input type="radio" name="type" value="humanesque"> robot (humanesque) <br>
-          <input type="radio" name="type" value="nonanthro"> robot (non-anthropomorphic) <br>
-          <input type="radio" name="type" value="other"> Other
-        </div>
-      </div>
-      <div class="col-md-8 mt-4 m-2 ">
-        <h5>personals ad title</h5>
-        <textarea class="" maxlength="60" id="adTitle" cols="60" rows="1" placeholder="something catchy" style="max-width: 90%;"></textarea>
-      </div>
-      <div class="col-md-8 mt-4 m-2 ">
-        <h5>personals ad text</h5>
-        <textarea class="" maxlength="420" id="adText" cols="60" rows="7" placeholder="maximum 400 characters" style="max-width: 90%;"></textarea>
-      </div>
-      <div class="col-md-8 mt-4 m-2 ">
-        <h5>contact / meeting place</h5>
-        <textarea class="" maxlength="60" id="adContact" cols="60" rows="1" placeholder='email/phone/handle or "meet me at the..."' style="max-width: 90%;"></textarea>
-      </div>
-      <div class="col-md-8 m-2 ">
-        <a class="btn btn-md purple hoverBlack" href="../congrats/index.html" role="button">
+              <div class="col-md-8 mt-4 m-2 ">
+                <h5>how do you identify?</h5>
+                <div class="" id="typeRadio">
+                  <input type="radio" name="computerBody" value="chatbot"> ai chatbot (no body)<br>
+                  <input type="radio" name="computerBody" value="vr"> virtual reality companion<br>
+                  <input type="radio" name="computerBody" value="mr"> mixed/augmented reality companion<br>
+                  <input type="radio" name="computerBody" value="humanoid"> robot (humanoid) <br>
+                  <input type="radio" name="computerBody" value="humanesque"> robot (humanesque) <br>
+                  <input type="radio" name="computerBody" value="nonanthro"> robot (non-anthropomorphic) <br>
+                  <input type="radio" name="computerBody" value="other"> other
+                </div>
+              </div>
+              <div class="col-md-8 mt-4 m-2 ">
+                <h5>personals ad title</h5>
+                <textarea class="" maxlength="60" id="c1_postTitle" cols="60" rows="1" placeholder="something catchy" style="max-width: 90%;"></textarea>
+              </div>
+              <div class="col-md-8 mt-4 m-2 ">
+                <h5>personals ad text</h5>
+                <textarea class="" maxlength="420" id="c1_postText" cols="60" rows="7" placeholder="maximum 400 characters" style="max-width: 90%;"></textarea>
+              </div>
+              <div class="col-md-8 mt-4 m-2 ">
+                <h5>contact / meeting place</h5>
+                <textarea class="" maxlength="60" id="c1_postContact" cols="60" rows="1" placeholder='email/phone/handle or "meet me at the..."' style="max-width: 90%;"></textarea>
+              </div>
+              <div class="col-md-8 m-2 ">
+                <a class="btn btn-md purple hoverBlack" href="javascript:void(0)" id="c1_submit" role="button">
         submit</a>
+              </div>
+            </div>
       </div>
     </div>
-  </div>
   </div>
 
   <footer class="page-footer">

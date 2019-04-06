@@ -1,22 +1,4 @@
-"use strict";
-
-// add perlin noise back https://www.youtube.com/watch?v=BjoM9oKOAKY&list=PLRqwX-V7Uu6bgPNQAdxQZpJuJCjeOr7VD&index=7&t=0s
-
-let bubbleArray = [];
-let numOfBubbles = 69;
-let bubbleArrayLength;
-
-
-
-function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight);
-  canvas.parent('bubbleCanvas');
-
-  frameRate(30);
-
-
-
-  // bubble animation
+function createBubbleArray() { // bubble animation
   for (let i = 0; i < numOfBubbles; i++) {
     bubbleArray.push(new Bubble(20, 50));
     bubbleArray.push(new Bubble(windowWidth / 10, windowWidth / 10 + 10));
@@ -27,22 +9,10 @@ function setup() {
   }
 
   bubbleArrayLength = bubbleArray.length;
-
-
-  // media query event handler
-  if (matchMedia) {
-    const mq = window.matchMedia("(min-width: 500px) and (min-height: 500px)");
-    mq.addListener(WidthChange);
-    WidthChange(mq);
-  }
-
 }
 
-function draw() {
-  clear();
 
-  noStroke();
-
+function drawBubbles() {
   for (let i = 0; i < bubbleArrayLength; i++) {
     bubbleArray[i].drawBubble();
 
@@ -50,23 +20,6 @@ function draw() {
 
     bubbleArray[i].checkBounds();
   }
-
-}
-
-
-function WidthChange(mq) {
-
-  // if (mq.matches) {
-  //   // window width is at least 500px = browser
-  //   document.querySelector("#browser-content").style.display = "block";
-  //   document.querySelector("#mobile-content").style.display = "none";
-  // } else {
-  //   console.log("mobile");
-  //   document.querySelector("#mobile-content").style.display = "block";
-  //   document.querySelector("#browser-content").style.display = "none";
-  //   // mobile phone
-  //
-  // }
 }
 
 
@@ -118,26 +71,3 @@ class Bubble {
     }
   }
 }
-
-
-
-let canvasDivInstance = function(p) { // p could be any variable name
-
-  p.canvas;
-  // p.eraseButton = document.querySelector("#eraseButton");
-
-
-  p.setup = function() {
-    p.canvas = p.createCanvas(windowWidth, windowHeight);
-    p.canvas.parent('bgCanvas');
-    // p.background(100, 100, 100);
-  };
-
-  p.draw = function() {
-
-  };
-
-
-}
-
-let canvasDiv = new p5(canvasDivInstance, 'canvasDiv');
