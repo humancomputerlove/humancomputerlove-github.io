@@ -80,7 +80,7 @@ function setup() {
   let ref = database.ref('personals');
   ref.on('value', gotData, errData);
 
-  createPersonals();
+  // createPersonals();
 
 }
 
@@ -89,6 +89,8 @@ function draw() {
   noStroke();
 
   drawBubbles();
+
+  // console.log(allData);
 
   if (allData && !personalsCreated) {
     createPersonals();
@@ -116,16 +118,14 @@ function createPersonals() {
 
   document.querySelector("#loading").style.visibility = "hidden";
 
-  // var div = document.createElement('div');
-  // div.innerHTML = "my <b>new</b> skill - <large>DOM maniuplation!</large>";
-  // // set style
-  // div.style.color = 'red';
-  // // better to use CSS though - just set class
-  // div.setAttribute('class', 'myclass'); // and make sure myclass has some styles in css
-  // document.body.appendChild(div);
+  allDataArray.forEach(function(post){
+    createCell(post.timeStamp, post.postType, post.postTitle, post.postText, post.contact, post.likes, post.flags);
+  });
+
+  // createCell("humanSeeksComputer", "testing", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in", "test contact", 10);
 }
 
-function createCell(_type, _title, _text, _contact, _likes, _flags) {
+function createCell(_id, _type, _title, _text, _contact, _likes, _flags) {
   let cellColor;
 
   switch (_type) {
@@ -140,21 +140,31 @@ function createCell(_type, _title, _text, _contact, _likes, _flags) {
       break;
   }
 
+  // console.log(_text.length);
 
-  html = `<div class="col-md-3 m-2 h-25 cell ${cellColor} ">
-            <h4 class="personalsTitle">${_title}</h4>
+  let colSize;
+  // set col size
+  if (_text.length > 300) {
+    colSize = `col-md-5`;
+  } else if (_text.length > 200) {
+    colSize = `col-md-4`;
+  } else {
+    colSize = `col-md-3`;
+  }
+
+
+  let html = `<h4 class="personalsTitle">${_title}</h4>
             <p class="personalsText">${_text}</p>
-            <p class="contact">beefyjuice@aol.com</p>
-            <p class="text-right"> <a href="javascript:void(0)" onclick="">like</a>
-              <a href="javascript:void(0)" onclick="">flag</a><br><span class="likes">0</span> likes</p>
+            <p class="contact">${_contact}</p>
+            <p class="text-right mb-1"> <a href="javascript:void(0)" onclick="">like</a>
+              <a href="javascript:void(0)" onclick="">flag</a><br><span class="likes">${_likes}</span> likes</p>`;
 
-          </div>`
-  $('body').append(html);
-  $("#dynamicModal").modal();
-  $("#dynamicModal").modal('show');
 
-  $('#dynamicModal').on('hidden.bs.modal', function(e) {
-    $(this).remove();
-  });
+  let post = document.createElement("div");
+  post.className = `${colSize} m-2 h-25 cell ${cellColor}`;
+  post.id = `${_id}`;
+  post.innerHTML = html;
+
+  document.querySelector("#personalsDiv").appendChild(post);
 
 }

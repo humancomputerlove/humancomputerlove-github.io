@@ -5,6 +5,8 @@ function gotData(data) {
   allData = data.val();
   allDataArray = Object.values(allData);
   // numberPersonals = allDataArray.length;
+  console.log(allDataArray);
+
 
   // create array of keys (traumagotchi names)
   keys = Object.keys(allData);
