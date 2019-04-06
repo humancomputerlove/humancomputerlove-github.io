@@ -1,198 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>human-computer love</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>h-c love | personals</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="robots" content="follow">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <!-- <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"> -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
   <script src="libraries/p5.js" type="text/javascript"></script>
   <script src="libraries/p5.dom.js" type="text/javascript"></script>
   <script src="libraries/p5.sound.js" type="text/javascript"></script>
   <!-- <script src="libraries/p5.play.js" type="text/javascript"></script> -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="main.css">
-  <script src="sketch.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="js/personals.js" type="text/javascript"></script>
+  <script src="js/bubble.js" type="text/javascript"></script>
+  <script src="js/gotIt.js" type="text/javascript"></script>
+  <script src="js/bgCanvas.js" type="text/javascript"></script>
 
 
 </head>
 
 <body>
-  <!-- <ul class="links">
-    <li><a class="activeLink" href="/">home</a></li>
-    <li><a class="greenLink" href="projects/index.html">projects</a></li>
-    <li><a class="pinkLink" href="about/bio-CV.html">bio/CV</a></li>
-    <li><a class="chartreuseLink" href="about/contact.html">contact</a></li>
-    <li><img class="platform" src="assets/stripes/platform_small.svg" alt="Lark Alder or Lark VCR, aka Virtually Conflicted Reality">
-  </ul> -->
   <div id="bgCanvas">
   </div>
-
-  <div class="container-fluid" id="browser-content">
-    <div class="" style="margin: 33px 0 80px 0;">
-      <h1 class="">human-computer love</h1>
-      <p>> intimate futures think/fish tank </p>
-      <p>> imagining radical possibility for virtual intimacy and machine coitus. </p>
-      <p>--------> work-in-progress by <a href="https://larkvcr.com/">Lark VCR</a></p>
-    </div>
-
-
-
-    <div class="row ">
-      <div class="col-6 textCell">
-        <p>This is participatory speculative design/fiction project. </p>
-        <p> We invite you to propose novel visions for sex robots, teledildonics, chatbots, and virtual or augmented reality experiences that challenge those produced by popular media and market forces.
-        </p>
-
-      </div>
-      <div class="col-6 cell">
-        <p>draw sex robot here</p>
-        <div class="" id="canvasDiv">
-        </div>
-        <button type="button" name="button" class="float-right" id="eraseButton">erase</button>
-      </div>
-    </div>
-    <div class="row marginTop">
-      <!-- <div class="col-12 textCell">
-        <p>Existing representations largely reinforce the status-quo.</p>
-      </div> -->
-      <!-- <div class="col-12 textCell">
-        <p>Existing representations largely reinforce the status-quo, perpetuating systemic devaluation of bodies belonging to targeted identities (black and brown bodies, women, trans, queer, non-binary, and disabled bodies, etc). </p>
-      </div> -->
-      <!-- <p><span class="blackText" id="existingRepresentations">Existing representations</span> largely reinforce the status-quo, perpetuating systemic devaluation of bodies belonging to targeted identities (black and brown bodies, women, trans, queer, non-binary, and disabled bodies, etc). </p>
-      </div> -->
-    </div>
-    <div class="row marginBottom">
-      <div class="col-3 cell hoverBlack" id="robots">
-        <p>Sex Robots</p>
-        <div class="overlay yellow" id="onRobots">
-          <p>physical bodies with computational elements. <br> features: chat AI, mechanical movement, ??? </p>
-          <!-- <img src="assets/images/sexRobots/sexRobot_1.jpeg" alt=""> -->
-          <img src="assets/images/sexRobots/sexRobot_0.png" alt="">
-        </div>
-      </div>
-      <div class="col-3 cell hoverBlack" id="vr">
-        <p id="vr-text">Virtual Reality</p>
-        <div class="overlay pink" id="onVr">
-          <p>Immersive experiences <br> features: immersive film/porn, avatars controlled by other people, avatars controlled by AI, hardware accessries (see teledildonics)</p>
-          <img src="assets/images/vr/vrComp.png" alt="">
-        </div>
-      </div>
-
-      <div class="col-3 cell hoverBlack" id="mr">
-        <p>Augmented/Mixed Reality</p>
-        <div class="green overlay" id="onMr">
-          <p>Holographic layers applied over live reality. In MR, real-world and virtual objects can interact. <br><br> features: map virtual elements onto live bodies</p>
-          <img src="assets/images/mr/snapchatFilter.jpg" alt="" style="max-width: 500px">
-        </div>
-      </div>
-      <div class="col-3 cell hoverBlack" id="ai">
-        <p>Teledildonics</p>
-        <div class="purple overlay" id="onAi">
-          <p>remote sex with hardware <br> </p>
-          <img src="assets/images/teledildonics/teledildonicsComp.png" alt="">
-        </div>
-      </div>
-
-    </div>
-    <div class="row marginBottom">
-      <div class="col-8">
-        <p>H-C Love asks: What are your wildest visions? <br><br> How might technology empower targeted groups, make sex more accessible, queer desire, decolonize beauty standards, and ?????</p>
-      </div>
-      <div class="col-4">
-
-        <a href="https://goo.gl/forms/vDvxGkJnWbAsUaB72" target="_blank">
-          <div class="col-10 submit">
-            SUBMIT YOUR PROPOSAL
-          </div>
-
-        </a>
-
-      </div>
-
-    </div>
-
-    <div class="row">
-      <h2>gallery</h2>
-    </div>
-    <div class="row">
-      <p>Coming soon!</p>
-    </div>
-    <div class="gallery" style="display: none">
-      <div class="row">
-        <div class="col-4 cell hoverBlack">
-          <img src="assets/images/proposals/sexFlower.png" alt="">
-          <p>Blooming. Sexual flower with anatomy for both reception and penetration. Only blooms at specific times in the day.</p>
-        </div>
-        <div class="col-4 cell hoverBlack">
-          <img src="assets/images/proposals/buttFlap.jpg" alt="" style="max-width: 200px;">
-          <p>Large co-sleeper pillow with heart rate and warmth and several genitalia options from a long john butt-flap</p>
-        </div>
-        <div class="col-4 cell hoverBlack" id="femmebot">
-          <img src="assets/images/proposals/femme_beyonce.jpg" alt="">
-          <p>Femmebot, alternative to fembot. </p>
-          <p>The culture of desire around "fembots" is based on total domination of the female body. Drawing on the self-determined queer femme identity, what would an empowered Femmebot be like? </p>
-          <div class="overlay" id="onFemmebot">
-            <h1>Not FEM as in FEMinine, <br> FEMME as in FUCK YOU</h1>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4 cell hoverBlack">
-          <img src="assets/images/proposals/dungeonScene.jpg" alt="">
-          <p>VR dungeon scene where AI avatars are models for practicing consent </p>
-        </div>
-        <div class="col-4 cell hoverBlack">Sex device that pulls live tide and swell data so you can get fucked by the rhythm of the ocean</div>
-        <div class="col-4 cell hoverBlack">
-          <img src="assets/images/proposals/BeAnotherLab_genderSwap.jpg" alt="">
-          <p>(this exists!) BeAnotherLab's gender swap VR experience</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4 cell hoverBlack">MR software that attaches images/video that you upload to your real-world vibrator</div>
-        <div class="col-4 cell hoverBlack">
-          <p>Sex biodata: MR that shows my partners heart rate, skin temp, arousal </p>
-        </div>
-        <div class="col-4 cell hoverBlack">
-          Mixed Reality software that attaches/projects uploaded images onto a vibrator while in use. Holographic fantasy! You can also program it as an AI chatbot for dirty talk / role play.
-        </div>
-      </div>
-    </div>
-
+  <div id="bubbleCanvas">
   </div>
 
-  <div class="container-fluid" id="mobile-content" style="display: none;">
+  <div id="wrap">
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-7 display-md-5 pt-5">human-computer love | personals</h1>
+        <p class="lead"> intimate futures think/fish/shark tank </p>
 
-    <div class="" style="margin: 33px 0 0 0;">
-      <h1 class="">human-computer love</h1>
-      <p>> intimate futures think/fishtank</p>
-      <p>> imagining radical possibility for virtual intimacy and machine coitus. </p>
-      <p>--------> work-in-progress by <a href="https://larkvcr.com/">Lark VCR</a></p>
-    </div>
-    <div class="">
-      <p>This site is not yet mobile compatible... come back on a browser!</p>
-    </div>
-    <!-- <a href="https://goo.gl/forms/vDvxGkJnWbAsUaB72" target="_blank">
-      <div class="col-10 submit">
-        SUBMIT YOUR PROPOSAL
       </div>
-    </a> -->
+    </div>
+    <div id="" class="row gallery justify-content-around">
+      <div class="col-md-3 m-2 h-25 post">
+        <h4 class="text-center m-0">UNDER CONSTRUCTION</h4>
+
+      </div>
+    </div>
   </div>
-  <!-- <div class="col-6 cell" id="videoDiv">
 
-    </div> -->
 
-  <footer class="page-footer">
-    <p>contact: humancomputerlove@gmail.com</p>
-  </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
