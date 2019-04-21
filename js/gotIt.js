@@ -8,7 +8,7 @@ function gotData(data) {
   console.log(allDataArray);
 
 
-  // create array of keys (traumagotchi names)
+  // create array of keys (post ids)
   keys = Object.keys(allData);
 }
 
