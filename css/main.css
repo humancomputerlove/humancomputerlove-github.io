@@ -1,7 +1,6 @@
 /* By Lark VCR. "In construction" */
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
-
 html, body {
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
@@ -19,6 +18,16 @@ body {
   background-image: radial-gradient(circle, #f7f7f7, #d4d6d1);
   /* max-width: 1200px; */
   /* margin: auto; */
+}
+
+a {
+  text-decoration: none;
+  border-bottom: none;
+  color: #161616;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 
@@ -41,38 +50,45 @@ body {
 
 
 /* change the brand and text color */
+
 .navbar-custom .navbar-brand, .navbar-custom .navbar-text {
   color: #3ac952;
 }
 
 
 /* change the link color */
+
 .navbar-custom .navbar-nav .nav-link {
   color: #D2DB21;
 }
 
+
 /* change the color of hovered links */
+
 .navbar-custom .nav-item.active .nav-link {
   /* color: #95967c; */
   color: #D2DB21;
-
 }
 
 
 /* change the color of hovered links */
+
 .navbar-custom .nav-item:hover .nav-link {
   color: #D31996;
 }
 
 
 /* style dropdown menu */
+
 .navbar-custom .dropdown-menu {
   padding: 0;
 }
 
+
 /* change hamburger toggler color */
+
 .custom-toggler .navbar-toggler {
-    border-color: #D2DB21;
+  border-color: #D2DB21;
 }
 
 .custom-toggler .navbar-toggler-icon {
@@ -144,7 +160,7 @@ body {
 }
 
 .jumbotron h1, .ubuntu {
-    font-family: "Ubuntu Mono", "Lucida Console", "Courier", monospace;
+  font-family: "Ubuntu Mono", "Lucida Console", "Courier", monospace;
 }
 
 
@@ -198,6 +214,7 @@ body {
   z-index: -3;
 }
 
+
 /* for styling & coloring cell divs */
 
 .cell {
@@ -235,7 +252,7 @@ body {
   background: #D31996;
   /* color: #D2DB21;
   background: #161616bb; */
-    /* color: #161616; */
+  /* color: #161616; */
 }
 
 .purple {
@@ -281,13 +298,64 @@ body {
 }
 
 
+/* The ribbons */
 
-a {
-  text-decoration: none;
-  border-bottom: none;
-  color: #161616;
+.corner-ribbon {
+  width: 200px;
+  background: #e43;
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
 
-a:hover {
-  text-decoration: none;
+
+/* Custom styles */
+
+.corner-ribbon.sticky {
+  position: relative;
+}
+
+.corner-ribbon.shadow {
+  box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+}
+
+
+/* Different positions */
+
+.corner-ribbon.top-left {
+  top: 25px;
+  left: -50px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.corner-ribbon.top-right {
+  top: 25px;
+  right: -50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.corner-ribbon.bottom-left {
+  top: auto;
+  bottom: 25px;
+  left: -50px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.corner-ribbon.bottom-right {
+  top: auto;
+  right: -50px;
+  bottom: 25px;
+  left: auto;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }
