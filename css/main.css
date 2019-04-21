@@ -107,7 +107,7 @@ a:hover {
 
 .post:hover {
   background-color: #D2DB21;
-  /* border: 3px solid #D2DB21; */
+  border: 3px solid #161616bb;
   color: #212121;
 }
 
