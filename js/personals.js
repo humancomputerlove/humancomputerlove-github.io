@@ -157,17 +157,17 @@ function createPersonals(_type) {
 }
 
 function createCell(_id, _type, _title, _text, _contact, _likes, _flags) {
-  let cellColor;
+  let flagColor;
 
   switch (_type) {
     case "humanSeeksComputer":
-      cellColor = "pink";
+      flagColor = "pinkFlag";
       break;
     case "computerSeeksHuman":
-      cellColor = "purple";
+      flagColor = "purpleFlag";
       break;
     case "seekingBusinessPartner":
-      cellColor = "green";
+      flagColor = "greenFlag";
       break;
   }
 
@@ -204,11 +204,11 @@ function createCell(_id, _type, _title, _text, _contact, _likes, _flags) {
             <p class="text-right mb-1"> <span class="likes">${_likes} </span><a href="javascript:void(0)" onclick="">&#9825;</a>
             <a href="javascript:void(0)" onclick="">&#9872;</a>
               </p>
-            <div class="corner-ribbon top-right sticky ${cellColor}">check</div>`;
+            `;
 
 
   let post = document.createElement("div");
-  post.className = `${colSize} my-2 mx-auto h-25 cell transBlack`;
+  post.className = `${colSize} my-2 mx-auto h-25 cell transBlack corner-ribbon ${flagColor}`;
   post.id = `${_id}`;
   post.innerHTML = html;
 
