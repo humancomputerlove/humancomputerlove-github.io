@@ -39,7 +39,9 @@ function setup() {
 
   createBubbleArray();
 
-  var scroll = setInterval(function(){ window.scrollBy(0,1); }, 30);
+  let scroll = setInterval(function() {
+    window.scrollBy(0, 1);
+  }, 30);
 
 
   // // for loading items
@@ -82,8 +84,6 @@ function setup() {
   let ref = database.ref('personals');
   ref.on('value', gotData, errData);
 
-  // createPersonals();
-
 }
 
 function draw() {
@@ -92,7 +92,11 @@ function draw() {
 
   drawBubbles();
 
-  // console.log(allData);
+  if (personalsCreated && (window.innerHeight + window.scrollY) >= document.querySelector("#wrap").offsetHeight) {
+    setTimeout(function() {
+      window.location.href = window.location.href;
+    }, 6000);
+  }
 
   if (allData && !personalsCreated) {
     createPersonals("viewAll");
@@ -119,25 +123,26 @@ function WidthChange(mq) {
 function createPersonals(_type) {
 
 
+
+
+  // shuffle entries
+  for (let i = allDataArray.length - 1; i >= 0; i--) {
+    let randomIndex = Math.floor(Math.random() * (i + 1));
+    let itemAtIndex = allDataArray[randomIndex];
+
+    allDataArray[randomIndex] = allDataArray[i];
+    allDataArray[i] = itemAtIndex;
+  }
+
+  // create post for each entry
+  allDataArray.forEach(function(post) {
+    if (_type === "viewAll") {
+      createCell(post.timeStamp, post.postType, post.postTitle, post.postText, post.contact, post.likes, post.flags);
+    } else if (post.postType === _type)
+      createCell(post.timeStamp, post.postType, post.postTitle, post.postText, post.contact, post.likes, post.flags);
+  });
+
     personalsCreated = true;
-
-
-    // shuffle entries
-    for (let i = allDataArray.length - 1; i >= 0; i--) {
-      let randomIndex = Math.floor(Math.random() * (i + 1));
-      let itemAtIndex = allDataArray[randomIndex];
-
-      allDataArray[randomIndex] = allDataArray[i];
-      allDataArray[i] = itemAtIndex;
-    }
-
-    // create post for each entry
-    allDataArray.forEach(function(post) {
-      if (_type === "viewAll") {
-        createCell(post.timeStamp, post.postType, post.postTitle, post.postText, post.contact, post.likes, post.flags);
-      } else if (post.postType === _type)
-        createCell(post.timeStamp, post.postType, post.postTitle, post.postText, post.contact, post.likes, post.flags);
-    });
 }
 
 function createCell(_id, _type, _title, _text, _contact, _likes, _flags) {
