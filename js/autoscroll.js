@@ -39,9 +39,10 @@ function setup() {
 
   createBubbleArray();
 
-  let scroll = setInterval(function() {
-    window.scrollBy(0, 1);
-  }, 30);
+setTimeout(function(){let scroll = setInterval(function() {
+  window.scrollBy(0, 1);
+}, 30);}, 2000);
+
 
 
   // // for loading items
@@ -95,7 +96,7 @@ function draw() {
   if (personalsCreated && (window.innerHeight + window.scrollY) >= document.querySelector("#wrap").offsetHeight) {
     setTimeout(function() {
       window.location.href = window.location.href;
-    }, 6000);
+    }, 4000);
   }
 
   if (allData && !personalsCreated) {
