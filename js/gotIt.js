@@ -10,6 +10,8 @@ function gotData(data) {
 
   // create array of keys (post ids)
   keys = Object.keys(allData);
+
+  createPersonals("viewAll");
 }
 
 function errData(err) {
