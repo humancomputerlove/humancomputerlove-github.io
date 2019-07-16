@@ -199,7 +199,7 @@ function setup() {
   }
 
 
-  // Initialize Firebase
+  // Initialize
   let config = {
     apiKey: "AIzaSyDllsUmTj6d55EqybvIBNSLnM0lvL7Z0aw",
     authDomain: "humancomputerlove-436b7.firebaseapp.com",
