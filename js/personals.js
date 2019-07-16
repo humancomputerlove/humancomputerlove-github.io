@@ -163,9 +163,6 @@ function createCell(_id, _type, _title, _text, _contact, _likes, _flags) {
       flagColor = "pinkFlag";
       break;
     case "computerSeeksHuman":
-      flagColor = "purpleFlag";
-      break;
-    case "seekingBusinessPartner":
       flagColor = "greenFlag";
       break;
   }
