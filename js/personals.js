@@ -82,6 +82,7 @@ function setup() {
 
   // createPersonals();
 
+
 }
 
 function draw() {
@@ -96,7 +97,6 @@ function draw() {
   //   createPersonals("humanSeeksComputer");
   // }
 }
-
 
 function WidthChange(mq) {
 
@@ -116,7 +116,6 @@ function WidthChange(mq) {
 function returnToMenu() {
   document.querySelector('#q1_filter').style.display = 'block';
   document.querySelector('#personalsDiv').style.display = 'none';
-  document.querySelector('#backButtonDiv').style.display = 'none';
 }
 
 function createPersonals(_type) {
@@ -126,10 +125,10 @@ function createPersonals(_type) {
   } else {
     // personalsCreated = true;
     document.querySelector("#personalsDiv").innerHTML = "";
-    document.querySelector('#q1_filter').style.display = 'none';
+    // makes filter header disappear
+    // document.querySelector('#q1_filter').style.display = 'none';
 
     setTimeout(function() {
-      document.querySelector('#backButtonDiv').style.display = 'block';
       document.querySelector('#personalsDiv').style.display = 'block';
     }, 0)
 
@@ -164,9 +163,6 @@ function createCell(_id, _type, _title, _text, _contact, _likes, _flags) {
       flagColor = "pinkFlag";
       break;
     case "computerSeeksHuman":
-      flagColor = "purpleFlag";
-      break;
-    case "seekingBusinessPartner":
       flagColor = "greenFlag";
       break;
   }

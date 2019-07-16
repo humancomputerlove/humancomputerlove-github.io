@@ -10,6 +10,18 @@ function gotData(data) {
 
   // create array of keys (post ids)
   keys = Object.keys(allData);
+
+
+// to reassign post object values > this is for making "seekingBusinessPartner" change to "humanSeeksComputer"
+  // allDataArray.forEach(function(post) {
+  //   if (post.postType === "seekingBusinessPartner") {
+  //     console.log(post);
+  //     firebase.database().ref('personals/' + post.timeStamp).update({
+  //       postType: "humanSeeksComputer"
+  //     });
+  //   }
+  // });
+  createPersonals("viewAll");
 }
 
 function errData(err) {
