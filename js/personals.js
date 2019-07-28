@@ -128,13 +128,13 @@ function createPersonals(_type) {
     // makes filter header disappear
     // document.querySelector('#q1_filter').style.display = 'none';
 
-    setTimeout(function() {
-      document.querySelector('#personalsDiv').style.display = 'block';
-    }, 0)
 
+    document.querySelector('#personalsDiv').style.display = 'block';
 
     // document.querySelector("#loading").style.visibility = "hidden";
     document.querySelector("footer").style.display = "block";
+    document.querySelector('#callToAction').style.display = 'block';
+
 
     // shuffle entries
     for (let i = allDataArray.length - 1; i >= 0; i--) {
@@ -146,6 +146,7 @@ function createPersonals(_type) {
     }
 
     // create post for each entry
+    // note this allows for filtering
     allDataArray.forEach(function(post) {
       if (_type === "viewAll") {
         createCell(post.timeStamp, post.postType, post.postTitle, post.postText, post.contact, post.likes, post.flags);

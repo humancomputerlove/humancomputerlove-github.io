@@ -12,7 +12,7 @@ function gotData(data) {
   keys = Object.keys(allData);
 
 
-// to reassign post object values > this is for making "seekingBusinessPartner" change to "humanSeeksComputer"
+// to reassign post object values > this was for making "seekingBusinessPartner" change to "humanSeeksComputer"
   // allDataArray.forEach(function(post) {
   //   if (post.postType === "seekingBusinessPartner") {
   //     console.log(post);
@@ -21,6 +21,7 @@ function gotData(data) {
   //     });
   //   }
   // });
+
   createPersonals("viewAll");
 }
 
