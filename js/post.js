@@ -77,7 +77,8 @@ function setup() {
 
   humanButton.onclick = function() {
     a0.style.display = "none";
-    a1.style.display = "block";
+    a2.style.display = "block";
+    postType = "humanSeeksComputer";
   }
 
   computerButton.onclick = function() {
@@ -226,7 +227,9 @@ function draw() {
   drawBubbles();
 }
 
-
+function createPersonals(){
+  //funny hack to avoid making two gotIt.js files for both post and personals pages
+}
 function WidthChange(mq) {
 
   // if (mq.matches) {
