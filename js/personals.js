@@ -197,7 +197,7 @@ function createCell(_id, _type, _title, _text, _contact, _likes, _flags) {
   //           `;
 
   // includes body of personal, no like icon
-  let html = `<h4 class="personalsTitle">${_title}</h4>
+  let html = `<h3 class="personalsTitle">${_title}</h3>
             <p class="personalsText">${_text}</p>
             <p class="contact" style="margin-bottom: 1em;">${_contact}</p>
             `;
