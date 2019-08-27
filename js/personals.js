@@ -137,13 +137,16 @@ function createPersonals(_type) {
 
 
     // shuffle entries
-    for (let i = allDataArray.length - 1; i >= 0; i--) {
-      let randomIndex = Math.floor(Math.random() * (i + 1));
-      let itemAtIndex = allDataArray[randomIndex];
+    // for (let i = allDataArray.length - 1; i >= 0; i--) {
+    //   let randomIndex = Math.floor(Math.random() * (i + 1));
+    //   let itemAtIndex = allDataArray[randomIndex];
+    //
+    //   allDataArray[randomIndex] = allDataArray[i];
+    //   allDataArray[i] = itemAtIndex;
+    // }
 
-      allDataArray[randomIndex] = allDataArray[i];
-      allDataArray[i] = itemAtIndex;
-    }
+
+  allDataArray.reverse();
 
     // create post for each entry
     // note this allows for filtering
