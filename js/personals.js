@@ -148,6 +148,15 @@ function createPersonals(_type) {
 
   allDataArray.reverse();
 
+  // shuffle entries
+  for (let i = allDataArray.length - 1; i >= 2; i--) {
+    let randomIndex = Math.floor(Math.random() * (i + 1)) + 2;
+    let itemAtIndex = allDataArray[randomIndex];
+
+    allDataArray[randomIndex] = allDataArray[i];
+    allDataArray[i] = itemAtIndex;
+  }
+
     // create post for each entry
     // note this allows for filtering
     allDataArray.forEach(function(post) {
