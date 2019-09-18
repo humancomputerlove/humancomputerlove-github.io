@@ -32,6 +32,11 @@ let keys;
 
 
 function setup() {
+  // redirect to home after 3 minutes of inactivity
+  setTimeout(function() {
+    window.location.href = "/";
+  }, 180000);
+
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('bubbleCanvas');
 
@@ -148,7 +153,7 @@ function createPersonals(_type) {
 
   allDataArray.reverse();
 
-  // shuffle entries
+  // shuffle entries (but keep first 2 in place)
   for (let i = allDataArray.length - 1; i >= 2; i--) {
     let randomIndex = Math.floor(Math.random() * (i + 1)) + 2;
     let itemAtIndex = allDataArray[randomIndex];
