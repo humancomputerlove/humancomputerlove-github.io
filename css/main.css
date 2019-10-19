@@ -30,14 +30,12 @@ a:hover {
   text-decoration: none;
 }
 
-
 /* Everything but the jumbotron gets side spacing for mobile first views */
 
 .header, .marketing, .page-footer {
   padding-right: 1rem;
   padding-left: 1rem;
 }
-
 
 /* Customize navbar */
 
@@ -48,20 +46,17 @@ a:hover {
 
 .navbar-custom {}
 
-
 /* change the brand and text color */
 
 .navbar-custom .navbar-brand, .navbar-custom .navbar-text {
   color: #3ac952;
 }
 
-
 /* change the link color */
 
 .navbar-custom .navbar-nav .nav-link {
   color: #D2DB21;
 }
-
 
 /* change the color of hovered links */
 
@@ -70,20 +65,17 @@ a:hover {
   color: #D2DB21;
 }
 
-
 /* change the color of hovered links */
 
 .navbar-custom .nav-item:hover .nav-link {
   color: #D31996;
 }
 
-
 /* style dropdown menu */
 
 .navbar-custom .dropdown-menu {
   padding: 0;
 }
-
 
 /* change hamburger toggler color */
 
@@ -94,7 +86,6 @@ a:hover {
 .custom-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(210, 219, 33, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
-
 
 /* button styling */
 
@@ -111,7 +102,6 @@ a:hover {
   color: #212121;
 }
 
-
 /* Customize page footer */
 
 .page-footer {
@@ -124,7 +114,6 @@ a:hover {
   font-size: 14px;
 }
 
-
 /* sticky footer */
 
 #wrap {
@@ -136,7 +125,6 @@ a:hover {
   padding: 0 0 60px;
 }
 
-
 /* Customize container */
 
 @media (min-width: 48em) {
@@ -144,7 +132,6 @@ a:hover {
     max-width: 70rem;
   }
 }
-
 
 /* Main gallery message and sign up button */
 
@@ -163,7 +150,6 @@ a:hover {
   font-family: "Ubuntu Mono", "Lucida Console", "Courier", monospace;
 }
 
-
 /* gallery content */
 
 .gallery {
@@ -180,7 +166,6 @@ a:hover {
   padding-bottom: 0;
   margin-bottom: 0;
 }
-
 
 /* Responsive: Portrait tablets and up */
 
@@ -213,7 +198,6 @@ a:hover {
   left: 0px;
   z-index: -3;
 }
-
 
 /* for styling & coloring cell divs */
 
@@ -278,7 +262,6 @@ a:hover {
   background: #161616;
 }
 
-
 /* color specific to text  */
 
 .yellowText {
@@ -297,48 +280,63 @@ a:hover {
   color: #3ac952;
 }
 
-
 .corner-ribbon {
-    /* width: 10em;
+  /* width: 10em;
     height: 6em;
     border: 4px solid #ccc;
     background-color: #fff;
     position: relative; */
 }
 
-.corner-ribbon::before,
-.corner-ribbon::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-color: transparent;
-    border-style: solid;
+.corner-ribbon::before, .corner-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-color: transparent;
+  border-style: solid;
 }
 
 .corner-ribbon::before {
-    border-width: 1.5em;
-    /* border-right-color: #ccc;
+  border-width: 1.5em;
+  /* border-right-color: #ccc;
     border-top-color: #ccc; */
 }
 
 .corner-ribbon.greenFlag::after {
-    /* border-radius: 0.4em; */
-    border-width: 1.35em;
-    border-right-color: #3ac952;
-    border-top-color: #3ac952;
+  /* border-radius: 0.4em; */
+  border-width: 1.35em;
+  border-right-color: #3ac952;
+  border-top-color: #3ac952;
 }
 
 .corner-ribbon.purpleFlag::after {
-    /* border-radius: 0.4em; */
-    border-width: 1.35em;
-    border-right-color: #9f44c9;
-    border-top-color: #9f44c9;
+  /* border-radius: 0.4em; */
+  border-width: 1.35em;
+  border-right-color: #9f44c9;
+  border-top-color: #9f44c9;
 }
 
 .corner-ribbon.pinkFlag::after {
-    /* border-radius: 0.4em; */
-    border-width: 1.35em;
-    border-right-color: #D31996;
-    border-top-color: #D31996;
+  /* border-radius: 0.4em; */
+  border-width: 1.35em;
+  border-right-color: #D31996;
+  border-top-color: #D31996;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+}
+
+.embed-container iframe, .embed-container object, .embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
