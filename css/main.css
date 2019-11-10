@@ -107,6 +107,15 @@ a:hover {
   color: #212121;
 }
 
+.btn-success:hover, .btn-success:active, .btn-success:focus {
+  /* color: #ffffff !important;
+  background-color: #1F2838 !important;
+  border-color: #494F57 !important; */
+  background-color: #D2DB21 !important;
+  border: 3px solid #161616bb !important;
+  color: #212121 !important;
+}
+
 /* Customize page footer */
 
 .page-footer {
