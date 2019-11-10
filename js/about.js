@@ -25,9 +25,9 @@ let bubbleArrayLength;
 
 function setup() {
   // redirect to home after 3 minutes of inactivity
-  setTimeout(function() {
-    window.location.href = "/";
-  }, 180000);
+  // setTimeout(function() {
+  //   window.location.href = "/";
+  // }, 180000);
 
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('bubbleCanvas');

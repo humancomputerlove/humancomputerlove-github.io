@@ -43,9 +43,9 @@ function loadItem(index, filename) {
 function setup() {
 
   // redirect to home after 5 minutes of inactivity
-  setTimeout(function() {
-    window.location.href = "/";
-  }, 300000);
+  // setTimeout(function() {
+  //   window.location.href = "/";
+  // }, 300000);
 
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('bubbleCanvas');
