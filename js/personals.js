@@ -221,7 +221,7 @@ function createCell(_id, _type, _title, _text, _contact, _likes, _flags) {
 
 
   let post = document.createElement("div");
-  post.className = `${colSize} my-2 mx-auto h-25 cell transBlack corner-ribbon ${flagColor}`;
+  post.className = `${colSize} my-4 mx-auto h-25 cell transBlack corner-ribbon ${flagColor}`;
   post.id = `${_id}`;
   post.innerHTML = html;
 
