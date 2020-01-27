@@ -3,24 +3,9 @@
 // add perlin noise back https://www.youtube.com/watch?v=BjoM9oKOAKY&list=PLRqwX-V7Uu6bgPNQAdxQZpJuJCjeOr7VD&index=7&t=0s
 
 let bubbleArray = [];
-let numOfBubbles = 69;
+let numOfBubbles = 33;
 let bubbleArrayLength;
 
-
-// function loadItem(index, filename) {
-//   loadSound(filename, soundLoaded);
-//
-//   function soundLoaded(sound) {
-//     // console.log(index + ' ' + filename);
-//     songs[index] = sound;
-//     counter++;
-//
-//     if (counter == 3) {
-//       songs[0].loop();
-//       loading = false;
-//     }
-//   }
-// }
 
 
 function setup() {
@@ -30,21 +15,6 @@ function setup() {
   frameRate(30);
 
   createBubbleArray();
-
-
-  // // for loading items
-  // loadItem(0, 'assets/audio/music/EagleInk_Aja_loop.mp3');
-  // loadItem(1, 'assets/audio/sfx/click.mp3');
-  // loadItem(2, 'assets/audio/sfx/fizzDown_hiPitch.mp3');
-
-  // // add sound to buttons
-  // let buttons = document.querySelectorAll("button, [type='checkbox'], [type='radio'], select, [href]");
-  //
-  // for (let i = 0; i < buttons.length; i++) {
-  //   buttons[i].addEventListener("click", function() {
-  //     songs[1].play();
-  //   });
-  // }
 
 
   // media query event handler

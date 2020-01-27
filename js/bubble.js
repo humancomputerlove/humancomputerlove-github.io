@@ -35,7 +35,7 @@ class Bubble {
     this.speedY = -4;
     this.accelX = 0;
     this.accelY = random(-0.0080, -0.0010);
-    this.diam = random(3, 7);
+    this.diam = random(4, 8);
     this.c = color(random(222, 255), random(222, 255), random(222, 255));
   }
 
