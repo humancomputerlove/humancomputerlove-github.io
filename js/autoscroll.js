@@ -35,7 +35,7 @@ function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('bubbleCanvas');
 
-  frameRate(30);
+  frameRate(20);
 
   createBubbleArray();
 

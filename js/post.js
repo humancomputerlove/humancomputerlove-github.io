@@ -32,7 +32,7 @@ function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('bubbleCanvas');
 
-  frameRate(30);
+  frameRate(20);
 
   // store question divs
   let a0 = document.querySelector("#a0_humanOrComputer");
