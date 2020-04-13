@@ -1,0 +1,70 @@
+<!-- vid for adding gltf animations https://www.youtube.com/watch?v=mPiFPv9WzOw -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>cybersex flower</title>
+  <script src="aframe-master.min.js"></script>
+  <script src="aframe-look-at-component.min.js"></script>
+  <script src="aframe-ar.js"></script>
+<!-- <script src="a-frame-extras-loaders.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  <script>
+    THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
+  </script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+  <a-scene vr-mode-ui="enabled: false" embedded="" arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;">
+    <!-- Load gltf in asset management -->
+    <a-assets>
+      <!-- <a-asset-item id="flower" src="assets/flower_1_no-shader.gltf"></a-asset-item> -->
+      <a-asset-item id="flower" src="assets/flower_1-no-shader-anim/flower_1-no-shader-anim.gltf"></a-asset-item>
+
+
+
+    </a-assets>
+
+
+<!-- ****** changing position using position attribute: *******
+    position="x y z"
+    x: - values move to left, + values move to right
+    y: - values move down, + values move up
+    z: - values move forward, + values move behind -->
+
+    <!-- default position="0 0 0" places object down (basically in your lap) -->
+    <!-- Display gltf from the asset management system. -->
+    <!-- <a-gltf-model src="#flower" look-at="[gps-camera]" scale="1 1 1" gps-entity-place="latitude: 44.493271; longitude: 11.326040;"></a-gltf-model> -->
+
+    <!-- this one places it directly in front of you-->
+    <!-- <a-gltf-model src="#flower" animation-mixer look-at="[gps-camera]" scale="1 1 1" gps-entity-place="latitude: 60.493271; longitude: 11.326040;" position="0 2 -5"></a-gltf-model> -->
+    <!-- <a-entity gltf-model="#flower" look-at="[gps-camera]" scale="1 1 1" gps-entity-place="latitude: 60.493271; longitude: 11.326040;" position="0 2 -5"></a-entity> -->
+    <a-entity gltf-model="#flower" animation-mixer="Sphere.003Action" look-at="[gps-camera]" scale="1 1 1" gps-entity-place="latitude: 60.493271; longitude: 11.326040;" position="0 2 -5"></a-entity>
+
+
+    <!-- this one points it to the left and slightly down-->
+    <!-- <a-gltf-model src="#flower" look-at="[gps-camera]" scale="1 1 1" gps-entity-place="latitude: 60.493271; longitude: 11.326040;" position="-3 0 0"></a-gltf-model> -->
+
+    <!-- this one points it to the right and above yr shoulder-->
+    <!-- <a-gltf-model src="#flower" look-at="[gps-camera]" scale="1 1 1" gps-entity-place="latitude: 60.493271; longitude: 11.326040;" position="3 3 0"></a-gltf-model> -->
+
+    <!-- this one points farther behind to the right and higher-->
+    <!-- <a-gltf-model src="#flower" look-at="[gps-camera]" scale="2 2 2" gps-entity-place="latitude: 60.493271; longitude: 11.326040;" position="3 5 5"></a-gltf-model> -->
+
+    <!-- Red directional light shining from the top left. -->
+    <a-light color="white" position="-1 1 0"></a-light>
+
+    <!-- Blue point light, 5 meters in the air. -->
+    <a-light type="point" color="white" position="0 5 0"></a-light>
+
+    <!-- Dim ambient lighting. -->
+    <a-light type="ambient" color="#fff"></a-light>
+
+    <a-camera gps-camera="" rotation-reader="">
+    </a-camera>
+  </a-scene>
+</body>
+
+</html>
